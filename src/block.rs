@@ -49,7 +49,7 @@ impl Block {
         for nonce_attempt in 0..(u64::max_value()) {
             self.nonce = nonce_attempt;
             let hash = self.hash();
-            println!("{:?}", nonce_attempt);
+            // println!("今のnonce_attempt: {:?}", nonce_attempt);
             if check_difficulty(&hash, self.difficulty) {
                 self.hash = hash;
                 return;
