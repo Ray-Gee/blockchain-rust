@@ -1,6 +1,7 @@
 use super::*;
 use std::collections::HashSet;
 
+#[derive(Clone)]
 pub struct Output {
     pub to_addr: Address,
     pub value: u64,
@@ -52,7 +53,7 @@ impl Transaction {
     }
 
     pub fn is_coinbase(&self) -> bool {
-        self.inputs.len() = 0
+        self.inputs.len() == 0
     }
 }
 
@@ -73,5 +74,7 @@ impl Hashable for Transaction {
                      .flat_map(|output| output.bytes())
                      .collect::<Vec<u8>>()
         );
+
+        bytes
     }
 }
